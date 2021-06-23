@@ -1,0 +1,41 @@
+package br.com.estacionamento.model;
+
+public class Sample {
+
+	public static void main(String[] args) {
+		
+		
+		
+		Estacionamento estacionamento = new Estacionamento(1,"EstacioneBem","4199999999","estacionebem@estacionebem.com","001454545/0001-66");
+		
+		
+		EstacionarCarro estacionarCarro = new EstacionarCarro();
+		
+		estacionarCarro.setId(1);
+		estacionarCarro.setEntrada("15:00");
+		estacionarCarro.setVagaNumero(30);
+		estacionarCarro.setStatusVaga(true);
+		estacionarCarro.setCarro(new Carro(1,"Narea","ABC-1234"));
+	
+		estacionarCarro.setId(2);
+		estacionarCarro.setEntrada("15:00");
+		estacionarCarro.setVagaNumero(25);
+		estacionarCarro.setStatusVaga(true);
+		estacionarCarro.setCarro(new Carro(1,"Narea","ABC-1234"));
+	
+		estacionamento.getEstacionarCarros().add(estacionarCarro);
+		
+		
+		System.out.print(estacionamento.toString());
+		
+			
+	
+		
+		
+		
+		
+		
+
+	}
+
+}

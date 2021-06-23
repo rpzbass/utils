@@ -1,0 +1,81 @@
+package br.com.estacionamento.model;
+
+public class EstacionarCarro {
+
+	private Integer id;
+	private String entrada;
+	private String saida;
+	private Integer vagaNumero;
+	private boolean statusVaga;
+
+	
+	Carro carro  = new Carro();
+	
+	public EstacionarCarro() {
+
+	}
+
+	public EstacionarCarro(Integer id, String entrada, String saida, Integer numero) {
+
+		this.id = id;
+		this.entrada = entrada;
+		this.saida = saida;
+		this.vagaNumero = numero;
+	}
+
+	public EstacionarCarro(EstacionarCarro objectEstacionar) {
+		this.id = objectEstacionar.getId();
+		this.entrada = objectEstacionar.getEntrada();
+		this.saida = objectEstacionar.getSaida();
+		this.vagaNumero = objectEstacionar.getVagaNumbero();
+	}
+
+	public Integer getId() {
+
+		return id;
+
+	}
+
+	public void setId(Integer id) {
+
+		this.id = id;
+
+	}
+
+	public String getEntrada() {
+
+		return entrada;
+
+	}
+
+	public void setEntrada(String entrada) {
+
+		this.entrada = entrada;
+
+	}
+
+	public String getSaida() {
+
+		return saida;
+
+	}
+
+	public void setSaida(String saida) {
+
+		this.saida = saida;
+
+	}
+
+	public Integer getVagaNumbero() {
+
+		return vagaNumero;
+
+	}
+
+	public void setVagaNumbero(Integer vagaNumbero) {
+
+		this.vagaNumero = vagaNumbero;
+
+	}
+
+}

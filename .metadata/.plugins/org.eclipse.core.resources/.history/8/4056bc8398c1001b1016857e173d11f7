@@ -1,0 +1,24 @@
+package entidade;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		 
+		Pessoa[] pessoa = new Pessoa[2];
+		
+		for(int i = 0; i< pessoa.length;i++) {
+			
+			pessoa[i] = new Pessoa("teste",30,83);
+		}
+		
+		System.out.println(pessoa[0].getNome());
+		System.out.println(pessoa[0].getIdade());
+		System.out.println(pessoa[0].getPeso());
+		
+	
+	
+	
+	}
+
+}

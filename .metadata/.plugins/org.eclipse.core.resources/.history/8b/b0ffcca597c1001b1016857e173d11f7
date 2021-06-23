@@ -1,0 +1,17 @@
+package entidade;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		 
+		Pessoa[] pessoa = new Pessoa[2];
+		
+		pessoa[0].setNome("Nome1");
+		
+		
+		System.out.print(pessoa[0].getNome());
+		
+	}
+
+}

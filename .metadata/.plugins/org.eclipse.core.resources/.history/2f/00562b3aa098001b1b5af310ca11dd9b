@@ -1,0 +1,115 @@
+package br.com.estacionamento.model;
+
+public class EstacionarCarro {
+
+	private Integer id;
+	private String entrada;
+	private String saida;
+	private Integer vagaNumero;
+	private boolean statusVaga = false;
+
+	
+
+	public EstacionarCarro() {
+
+	}
+
+	public EstacionarCarro(Integer id, String entrada, String saida, Integer numero,boolean status) {
+
+		this.id = id;
+		this.entrada = entrada;
+		this.saida = saida;
+		this.vagaNumero = numero;
+		this.statusVaga = status;
+	}
+
+	public EstacionarCarro(EstacionarCarro objectEstacionar) {
+	
+		this.id = objectEstacionar.getId();
+		this.entrada = objectEstacionar.getEntrada();
+		this.saida = objectEstacionar.getSaida();
+		this.vagaNumero = objectEstacionar.getVagaNumero();
+		this.statusVaga = objectEstacionar.isStatusVaga();
+		this.carro.setId(objectEstacionar.getCarro().getId());
+		this.carro.setModelo(objectEstacionar.getCarro().getModelo());
+		this.carro.setPlaca(objectEstacionar.getCarro().getPlaca());
+		
+	
+	}
+
+	Carro carro = new Carro();
+
+	public boolean isStatusVaga() {
+		return statusVaga;
+	}
+
+	public void setStatusVaga(boolean statusVaga) {
+		this.statusVaga = statusVaga;
+	}
+
+	public Carro getCarro() {
+		return carro;
+	}
+	
+	public void setCarro(Carro carro) {
+		
+		this.carro = carro;
+	
+	}
+
+	public Integer getId() {
+
+		return id;
+
+	}
+
+	public void setId(Integer id) {
+
+		this.id = id;
+
+	}
+
+	public String getEntrada() {
+
+		return entrada;
+
+	}
+
+	public void setEntrada(String entrada) {
+
+		this.entrada = entrada;
+
+	}
+
+	public String getSaida() {
+
+		return saida;
+
+	}
+
+	public void setSaida(String saida) {
+
+		this.saida = saida;
+
+	}
+
+	public Integer getVagaNumero() {
+
+		return vagaNumero;
+
+	}
+
+	public void setVagaNumero(Integer vagaNumero) {
+
+		this.vagaNumero = vagaNumero;
+
+	}
+
+	@Override
+	public String toString() {
+		return "EstacionarCarro \n[id=" + id + ",\n entrada=" + entrada + ", \nsaida=" + saida + ",\n vagaNumero=" + vagaNumero
+				+ ",\n statusVaga="
+				+ "" + statusVaga + ", carro=" + carro + "]";
+	}
+
+}

@@ -1,0 +1,16 @@
+package variaveis;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		int num = 10;   
+		int num2 = 5;  //iniciliazada com o valor 0
+		int num3;
+		
+		System.out.print(num2 + "  " +  num );
+		
+		
+	}
+
+}
