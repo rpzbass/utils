@@ -50,6 +50,12 @@ public class Celular {
 		return IMEI != null? IMEI.equals(outroCelular.getIMEI()): false;	
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Celular [nome=" + nome + ","
+			+ " IMEI=" + IMEI + "]";
+	}
 	
 	
 	

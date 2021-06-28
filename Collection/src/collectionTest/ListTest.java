@@ -29,7 +29,7 @@ public class ListTest {
 			System.out.println(nome);
 		}
 		
-		System.out.println("\n-------------------------------------\n");
+		System.out.println("\n-----------Adiciona tudo para outra lista--------------------------\n");
 		
 		nomes.add("nome+");
 		
@@ -53,6 +53,19 @@ public class ListTest {
 	    for(String line : dumpList(stf2emeio)) { 	    	  
 	    	System.out.println(line);
 	    }
+	    
+	    System.out.println("\n--------------------Limpando a lista--------------------\n");
+	    nomes.clear(); // mesmo  limpando a lista ainda existirá uma referencia
+	    
+	    for(String line : nomes) {
+	    	
+	    	
+	    	System.out.println(line);
+	    	
+	    }
+	    
+	    
+	    
 
 	    
 	    
