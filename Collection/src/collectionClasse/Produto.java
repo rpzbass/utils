@@ -4,7 +4,11 @@ public class Produto implements Comparable<Produto> {
 
 	private String serialNumber;
 	private String nome;
-	private Double preco;   /* Diferença do tipo primitivo double para Double é que double não possui metodos por ser tipo primitivo*/ 
+	private Double preco; /*
+							 * Diferença do tipo primitivo double para Double é que double não possui
+							 * metodos por ser tipo primitivo
+							 */
+	private Integer qtde;
 
 	public Produto() {
 
@@ -16,6 +20,22 @@ public class Produto implements Comparable<Produto> {
 		this.nome = nome;
 		this.preco = preco;
 
+	}
+
+	public Produto(String serialNumber, String nome, Double preco, Integer qtde) {
+
+		this.serialNumber = serialNumber;
+		this.nome = nome;
+		this.preco = preco;
+		this.qtde = qtde;
+	}
+
+	public Integer getQtde() {
+		return qtde;
+	}
+
+	public void setQtde(Integer qtde) {
+		this.qtde = qtde;
 	}
 
 	public String getSerialNumber() {
@@ -72,15 +92,13 @@ public class Produto implements Comparable<Produto> {
 		return "Produto [serialNumber= " + serialNumber + "  Nome= " + nome + "  Preco= " + preco + "]";
 	}
 
-	
-	
 	@Override
 	public int compareTo(Produto otherObject) {
-		
-		/* Negativo  = se this.object < otherObject
-		 * Zero  = se this.object == otherOBject
+
+		/*
+		 * Negativo = se this.object < otherObject Zero = se this.object == otherOBject
 		 * Positivo = se this.object > otherObject
-		*/
+		 */
 		return this.getPreco().compareTo(otherObject.getPreco());
 	}
 

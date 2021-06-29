@@ -54,6 +54,7 @@ public class ListCelularTest {
 		for (Celular nome : wordList) {
 
 			System.out.println(celulares.contains(nome));
+		
 		}
 
 	}
