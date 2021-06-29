@@ -46,8 +46,6 @@ public class SortProdutoTest {
 		produtosArray[3] = produto4;
 		
 		
-		
-		
 		Collections.sort(produtos, new ProdutoNomeComparator());
 
 		for (Produto prod : produtos) {
