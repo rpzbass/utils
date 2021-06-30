@@ -1,6 +1,8 @@
 package collectionClasse;
 
-public class Produto implements Comparable<Produto> {
+import java.util.Comparator;
+
+public class Produto implements  Comparator<Produto>,Comparable<Produto> {
 
 	private String serialNumber;
 	private String nome;
@@ -99,7 +101,14 @@ public class Produto implements Comparable<Produto> {
 		 * Negativo = se this.object < otherObject Zero = se this.object == otherOBject
 		 * Positivo = se this.object > otherObject
 		 */
-		return this.getPreco().compareTo(otherObject.getPreco());
+		return this.preco.compareTo(otherObject.getPreco());
+	}
+
+	@Override
+	public int compare(Produto o1, Produto o2) {
+		
+		return o1.getNome().compareTo(o2.getNome());
+	
 	}
 
 }
