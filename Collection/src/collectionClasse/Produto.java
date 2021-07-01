@@ -91,7 +91,7 @@ public class Produto implements  Comparator<Produto>,Comparable<Produto> {
 
 	@Override
 	public String toString() {
-		return "Produto [serialNumber= " + serialNumber + "  Nome= " + nome + "  Preco= " + preco + "]";
+		return "Produto [serialNumber= " + serialNumber + "  Nome= " + nome + "  Preco= " + preco + "]\n";
 	}
 
 	@Override

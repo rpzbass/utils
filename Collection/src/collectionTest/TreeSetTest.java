@@ -46,19 +46,39 @@ public class TreeSetTest {
 		produtoNavigableSet.add(produto5);
 		
 		
-		produtoNavigableSet.forEach(System.out::println);
+		System.out.println("----------Antes do descendingSet = ordem reversa---------------------\n");
+		
+			for(Produto prod: produtoNavigableSet) {
+			
+				System.out.println(prod);
+			}
+		
+		System.out.println("\n----------Depois do descendingSet = ordem reversa---------------------\n");
+			
+	
+		//produtoNavigableSet.forEach(System.out::println);
 		
 		/* methods NavigableSet 
 		 * lower <
 		 * floor <=
 		 * higher >
 		 * ceilling >=
+		 * descendingSet ->  reverseList
 		 */
 		
-		System.out.println("-----------higher = o maior relativo---------------------\n"+ produtoNavigableSet.higher(produto1));
+		for(Produto prod: produtoNavigableSet.descendingSet()) {
+			
+			System.out.println(prod);
+		}
+	
+	//	System.out.println("\n-----------higher = o maior relativo---------------------\n\n"+ produtoNavigableSet.higher(produto1));
 		
 		
+		System.out.println(produtoNavigableSet.size());
+		//System.out.println(produtoNavigableSet.pollFirst());
 		
+		System.out.println(produtoNavigableSet.pollLast());
+		System.out.println(produtoNavigableSet.size());
 		
 		
 		
