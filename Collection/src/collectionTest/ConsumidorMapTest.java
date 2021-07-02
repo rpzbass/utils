@@ -33,11 +33,13 @@ public class ConsumidorMapTest {
 		map.put(consumidor2, produtoCon2);
 		
 		for(Map.Entry<Consumidor,List<Produto>> vendas : map.entrySet()) { 
+			
 			System.out.println("Consumidor----------------------------");
 			System.out.println(vendas.getKey().getNome());
 			System.out.println("Produtos-------------------------------\n");
+			
 			for(Produto prods : vendas.getValue()) {
-				System.out.println(prods.getNome());
+				System.out.println(prods.getNome());	
 			}
 			
 			
