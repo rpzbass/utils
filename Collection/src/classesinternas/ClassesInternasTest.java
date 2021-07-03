@@ -21,7 +21,6 @@ public class ClassesInternasTest {
 		in3.verClasseExterna();
 	}
 }
-
 	class Externa {
 
 		private String nome = "Dev Training";
