@@ -2,7 +2,6 @@ package Generics.genericsTest;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import collectionClasse.Carro;
@@ -37,7 +36,6 @@ public class ClassesAnonimasTest {
 			}
 		});
 	*/
-		
 		Collections.sort(carroList, (o1,o2) -> o1.getNome().compareTo(o2.getNome()));
 		
 		
