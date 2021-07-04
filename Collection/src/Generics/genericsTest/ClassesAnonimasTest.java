@@ -13,7 +13,6 @@ class An1mal {
 		System.out.println("Andando");
 	}	
 }
-
 public class ClassesAnonimasTest {
 
 	public static void main(String[] args) {
@@ -31,12 +30,16 @@ public class ClassesAnonimasTest {
 		carroList.add(new Carro("BMW"));
 		carroList.add(new Carro("Audi"));
 	
-		Collections.sort(carroList, new Comparator<Carro>() {	
+	/*	Collections.sort(carroList, new Comparator<Carro>() {	
 			@Override
 			public int compare(Carro o1, Carro o2) {
 				return o1.getNome().compareTo(o2.getNome());
 			}
 		});
+	*/
+		
+		Collections.sort(carroList, (o1,o2) -> o1.getNome().compareTo(o2.getNome()));
+		
 		
 		carroList.forEach(System.out::println);
 		
