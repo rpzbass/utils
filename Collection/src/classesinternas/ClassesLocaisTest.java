@@ -7,20 +7,23 @@ public class ClassesLocaisTest {
 	public void fazAlgumaCoisa() {
 
 		class Interna {
-
+	
+			final String nomeinterno = "nome interno";
 			public void imprimeNomeExterna() {
 				System.out.println(nome);
+				System.out.println(nomeinterno);
 			}
 		}
 
 		Interna in = new Interna();
 		in.imprimeNomeExterna();
+	
 	}
 	public static void main(String[] args) {
-
+		
 		ClassesLocaisTest externa = new ClassesLocaisTest();
 		externa.fazAlgumaCoisa();
-
+	
 	}
 
 }
