@@ -10,7 +10,6 @@ class Extern {
 
 		}
 	}
-
 }
 
 public class ClassesInternasEstaticasTest {
