@@ -8,10 +8,16 @@ public class Comprador {
 	private String nome;
 	
 	
+	
 	public Comprador() {
 		
 	}
 	
+	public Comprador(Integer id) {
+	
+		this.id = id;
+		
+	}
 	public Comprador(String cpf, String nome) {
 		
 		

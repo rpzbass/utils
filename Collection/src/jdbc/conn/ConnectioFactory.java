@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import jdbc.classes.Comprador;
+
 public class ConnectioFactory {
 	/*
 	 * java.sql = Connection, Statament , ResultSet DriverManager
@@ -60,4 +62,9 @@ public class ConnectioFactory {
 
 	}
 
+	
+	
+	
+	
+	
 }
