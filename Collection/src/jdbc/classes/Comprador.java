@@ -18,6 +18,11 @@ public class Comprador {
 		this.id = id;
 		
 	}
+	@Override
+	public String toString() {
+		return "Comprador [id=" + id + ", cpf=" + cpf + ", nome=" + nome + "]";
+	}
+
 	public Comprador(String cpf, String nome) {
 		
 		

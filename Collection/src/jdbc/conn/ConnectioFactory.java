@@ -2,10 +2,9 @@ package jdbc.conn;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import jdbc.classes.Comprador;
 
 public class ConnectioFactory {
 	/*
@@ -21,14 +20,14 @@ public class ConnectioFactory {
 		try {
 			/* Class.forName("com.mysql.jdbc.Driver"); antes do java 4 */
 			/* Connection connecting = DriverManager.getConnection(url, user, password); */
-			System.out.println("CONECTADO!!!");
+			System.out.println("Carrengando...\n");
 			return DriverManager.getConnection(url, user, password);
 
 		} catch (SQLException e) {
-
+			
 			System.out.println("ERRO DE CONEXÃO");
 			e.printStackTrace();
-
+		
 		}
 		return null;
 	}
@@ -62,6 +61,25 @@ public class ConnectioFactory {
 
 	}
 
+
+	public static void fecharResultSet(Connection conn, Statement stst,ResultSet resultSet) {
+
+		fecharStatament(conn,stst);
+		
+		try {
+
+			if (resultSet != null)
+				
+				resultSet.close();
+			
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		
+		}
+
+	}
+	
 	
 	
 	
