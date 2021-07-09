@@ -20,7 +20,7 @@ public class Comprador {
 	}
 	@Override
 	public String toString() {
-		return "Comprador [id=" + id + ", cpf=" + cpf + ", nome=" + nome + "]";
+		return "Comprador [ID: " + id + "  NOME: " + nome + " CPF: " + cpf   + "]";
 	}
 
 	public Comprador(String cpf, String nome) {
@@ -30,7 +30,7 @@ public class Comprador {
 		this.nome = nome;
 		
 	}
-	public Comprador(Integer id,String cpf, String nome) {
+	public Comprador(Integer id,String nome, String cpf) {
 		
 		this.id = id;
 		this.cpf = cpf;

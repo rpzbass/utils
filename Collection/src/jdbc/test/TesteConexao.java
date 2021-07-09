@@ -1,5 +1,6 @@
 package jdbc.test;
 
+import java.util.List;
 import java.util.Scanner;
 
 import jdbc.classes.Comprador;
@@ -11,11 +12,25 @@ public class TesteConexao {
 
 		showMenu();
 		//atualizar();
-		selecionarTodos();
+		//deletar();
+		
+		//Comprador object = (Comprador) encontrarPorNome("Joao");
+		//List<Comprador> compList = encontrarPorNome("Ronaldo");
+	/*	List<Comprador> resultadoList =  encontrarPorNome();
+		
+		if(resultadoList != null)
+		resultadoList.forEach(System.out::println);	
+		*/
+		
+		selecionarMetadados();
+		
+		
+		/*	
+		for(Comprador comp: compradorResource) {
+			System.out.println(comp);
+		}
+	 */
 	
-		
-		
-
 	}
 
 	public static void inserir() {
@@ -49,7 +64,7 @@ public class TesteConexao {
 		System.out.print("id : ");
 		Integer id = input.nextInt();
 		System.out.print("Nome : ");
-		input.next();
+		input.nextLine();
 		String nome = input.nextLine();
 		System.out.print("cpf : ");
 		String cpf = input.nextLine();
@@ -59,11 +74,24 @@ public class TesteConexao {
 
 	}
 	
-	public static void selecionarTodos() {
+	public static List<Comprador> selecionarTodos() {
 		
-		CompradorDB.selectAll();
+	  return CompradorDB.selectAll();
 		
 	}
+	public static List<Comprador> encontrarPorNome() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Buscar nome: ");
+		String nome = input.nextLine();
+		input.close();
+		return CompradorDB.searchByName(nome);
+	}
+	public static void selecionarMetadados() {
+		
+		CompradorDB.selectMetadata();
+	
+	}
+	
 	
 
 	public static void showMenu() {

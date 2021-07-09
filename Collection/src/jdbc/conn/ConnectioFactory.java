@@ -21,7 +21,7 @@ public class ConnectioFactory {
 			/* Class.forName("com.mysql.jdbc.Driver"); antes do java 4 */
 			/* Connection connecting = DriverManager.getConnection(url, user, password); */
 			System.out.println("Carrengando...\n");
-			return DriverManager.getConnection(url, user, password);
+			return DriverManager.getConnection(url,user,password);
 
 		} catch (SQLException e) {
 			
@@ -29,6 +29,7 @@ public class ConnectioFactory {
 			e.printStackTrace();
 		
 		}
+		
 		return null;
 	}
 
@@ -62,14 +63,13 @@ public class ConnectioFactory {
 	}
 
 
-	public static void fecharResultSet(Connection conn, Statement stst,ResultSet resultSet) {
+	public static void fecharResultSet(Connection conn,Statement stst,ResultSet resultSet) {
 
 		fecharStatament(conn,stst);
 		
 		try {
 
-			if (resultSet != null)
-				
+			if (resultSet != null)	
 				resultSet.close();
 			
 		} catch (SQLException e) {
