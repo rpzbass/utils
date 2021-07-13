@@ -24,6 +24,13 @@ public class TesteConexao {
 		
 		selecionarMetadados();
 		
+		CompradorDB.testTypeScroll();
+		
+		
+		
+		//CompradorDB.checkDriverStatus();
+		
+		
 		
 		/*	
 		for(Comprador comp: compradorResource) {
