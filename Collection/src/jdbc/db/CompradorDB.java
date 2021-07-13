@@ -243,18 +243,22 @@ public class CompradorDB {
 			ResultSet resultSet = stmt.executeQuery(sql);
 			
 			if (resultSet.last()) {
-				
 				System.out.println("Ultima linha: " + new Comprador(resultSet.getInt("id"), resultSet.getString("nome"), resultSet.getString("cpf")));
 				System.out.println("Numero ultima linha: "+ resultSet.getRow());
-			
 			}
-			System.out.println("Retornou para primeira linha: "+ resultSet.first() + " " + resultSet.getInt("id") + resultSet.getString("nome"));
+			
+			System.out.println("Retornou para primeira linha: "+ resultSet.first() + " " + resultSet.getRow());
+			resultSet.absolute(2);	
+			System.out.println("Linha 2 " + resultSet.getString("nome") + resultSet.getRow());
+			resultSet.relative(1);
+			System.out.println("Linha 3 " + resultSet.getInt("id"));
+			resultSet.relative(-1);
+			System.out.println("3-1= retorna pra linha 2 "+ resultSet.getString("nome"));
 			ConnectioFactory.fecharResultSet(conn,stmt,resultSet);
 			
-		} catch (SQLException e) {
 			
+		} catch (SQLException e) {
 			e.printStackTrace();
-		
 		}
 	}
 	
