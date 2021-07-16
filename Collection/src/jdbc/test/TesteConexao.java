@@ -1,10 +1,23 @@
 package jdbc.test;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
 import jdbc.classes.Comprador;
 import jdbc.db.CompradorDB;
+
+
+class CompareTo implements Comparator<Comprador> {
+
+	@Override
+	public int compare(Comprador o1, Comprador o2) {
+		
+		return o1.getCpf().compareTo(o2.getCpf());
+	}
+	
+}
+
 
 public class TesteConexao {
 
@@ -22,13 +35,50 @@ public class TesteConexao {
 		resultadoList.forEach(System.out::println);	
 		*/
 		
-		selecionarMetadados();
+		/*for (Comprador comp:  selecionarTodos()) {
+			System.out.println(comp);
+		}
+		*/
+		//selecionarMetadados();
 		
-		CompradorDB.testTypeScroll();
+		//CompradorDB.testTypeScroll();
+		
+		//CompradorDB.updateNomeToLowerCase();
+		
+		
+		
+		
+		/*List<Comprador> resultSet = CompradorDB.searchByNamePreparementStatement("Ronaldo");
+		
+		//resultSet.forEach(System.out::println);
+		
+		for(Comprador line: resultSet) {
+			System.out.println(line);
+		}*/
+	
+		for(Comprador line :CompradorDB.searchByNameCallableStatement("A"))
+		{
+			System.out.println(line);
+		}
+		
+		
+		
+		
+		
+	//	CompradorDB.updatePreparedStatement(new Comprador(22,"Prepared Statement da silva","011.011.011-01"));
+		
+		
+		//selecionarTodos().forEach(System.out::println);
+		
+		
+		System.out.println(Math.floor(-9.8));
+		System.out.printf("%.1f ",Math.PI);
 		
 		
 		
 		//CompradorDB.checkDriverStatus();
+		
+		
 		
 		
 		
@@ -99,8 +149,6 @@ public class TesteConexao {
 	
 	}
 	
-	
-
 	public static void showMenu() {
 
 		System.out.println("-------------------------------------------------");
