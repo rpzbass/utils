@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.sql.rowset.JdbcRowSet;
+import javax.sql.rowset.RowSetProvider;
+
 public class ConnectioFactory {
 	/*
 	 * java.sql = Connection, Statament , ResultSet DriverManager
@@ -79,7 +82,44 @@ public class ConnectioFactory {
 		}
 
 	}
+
+	public static JdbcRowSet getRowSetConnection() {
+
+		String url = "jdbc:mysql://localhost:3306/agencia";
+		String user = "root";
+		String password = "";
+
+		try {
+			
+			JdbcRowSet jdbcRowSet = RowSetProvider.newFactory().createJdbcRowSet();
+			jdbcRowSet.setUrl(url);
+			jdbcRowSet.setUsername(user);
+			jdbcRowSet.setPassword(password);
+			return jdbcRowSet;
+			
+		} catch (SQLException e) {
+			
+			System.out.println("Erro de conexão!!!");
+			e.printStackTrace();
+		
+		}
+		
+		return null;
+	}
 	
+	public static void fecharConexaoJdbc(JdbcRowSet jdbc_connection) {
+
+		try {
+
+			if (jdbc_connection != null) {
+				jdbc_connection.close();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
 	
 	
 	

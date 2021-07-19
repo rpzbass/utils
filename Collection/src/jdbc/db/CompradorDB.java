@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.rowset.JdbcRowSet;
+
 import jdbc.classes.Comprador;
 import jdbc.conn.ConnectioFactory;
 
@@ -373,6 +375,43 @@ public class CompradorDB {
 		}
 
 		return null;
+	}
+
+	public static List<Comprador> searchByNameRowSet(String nome) {
+
+		// String sql = "DELETE FROM `agencia`.`tb_comprador` WHERE id = '" +
+		// comprador.getId() + "'";
+		String sql = "SELECT * FROM tb_comprador WHERE nome like  ? ";
+		JdbcRowSet jdbc_conn = ConnectioFactory.getRowSetConnection();
+		List<Comprador> compradorList = new ArrayList<>();
+
+		try {
+
+			jdbc_conn.setCommand(sql);
+			jdbc_conn.setString(1, nome);
+			jdbc_conn.execute();
+
+			while (jdbc_conn.next()) {
+
+				compradorList.add(new Comprador(jdbc_conn.getInt("id"), jdbc_conn.getString("nome"), jdbc_conn.getString("cpf")));
+				
+			}
+
+			ConnectioFactory.fecharConexaoJdbc(jdbc_conn);
+			return compradorList;
+
+		} catch (SQLException e) {
+
+			System.out.println("Erro na sintaxe do SQL");
+
+		} catch (NullPointerException e) {
+
+			System.out.println("Registro não encontrado2");
+
+		}
+
+		return null;
+
 	}
 
 }
