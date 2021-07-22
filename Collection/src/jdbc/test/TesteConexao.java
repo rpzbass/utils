@@ -1,11 +1,7 @@
 package jdbc.test;
 
-import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 import jdbc.classes.Comprador;
@@ -74,7 +70,7 @@ public class TesteConexao {
 			System.out.println(comp);
 		}
 	 */
-	/*
+
 		List<Comprador> list_withjdbc =  CompradorDB.searchByNameRowSet("%a%");
 		
 		System.out.println("\n");
@@ -82,59 +78,23 @@ public class TesteConexao {
 			System.out.println(line);
 		}
 		
-		*/
-		/*Locale.setDefault(Locale.US);
-		Scanner in = new Scanner(System.in);
-		System.out.println("informe o valor: ");
-		double x = in.nextDouble(200.0000);
-		double [] n = new double[100];
 		
-		n[0] = x;
 		
-		for(int i = 1;i<100;i++ ) {
-			
-			n[i] = n[i-1]/2;
-			
-		}	
 	
-		for (int i =0;i< n.length;i++) {  	
-			
-			System.out.printf(String.format("N[" + i + "] = %.4f \n", n[i]));
-			
-		} 
-		in.close();
+		
+		
+		/*CompradorDB.updateRowSet(new Comprador(22,"Joao das coves II","555.777.888-99"));*/
+		
+		
+		
+		
+		
+		
 	
-		*/
-		/*Locale.setDefault(Locale.US);
-		Scanner input = new Scanner(System.in);
-		System.out.println("Informe um valor:  ");
-		double x = input.nextDouble()/10000;
-		BigDecimal bD= new BigDecimal(x);
-		BigDecimal round = bD.round(new MathContext(1, RoundingMode.HALF_EVEN));
-		System.out.println(round);
-		System.out.println(bD);
-		input.close();
-		*/
-		 	Locale.setDefault(Locale.US);
-	        Scanner leitor = new Scanner(System.in);
-	        double x = leitor.nextDouble();
-	        BigDecimal[] n = new BigDecimal[100];
-	        n[0] = new BigDecimal(x).round(new MathContext(1,RoundingMode.HALF_UP));
-	        
-	        for (int i=1;i<100;i++) {
-	        	  BigDecimal temp = n[i-1];
-	        	  n[i] = temp.divide(new BigDecimal("2.00"),MathContext.UNLIMITED);
-	        }
-	        
-	        for (int i=1;i<100;i++) {
-	        	System.out.println(String.format("N["+ i + "] = %.4f \n", n[i].setScale(6,RoundingMode.HALF_EVEN)));
-	        }
-	       
-	       
-	        
-	        
-	        
-	        leitor.close(); 
+	
+		
+		
+		 
 
 		
 

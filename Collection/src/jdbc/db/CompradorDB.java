@@ -14,6 +14,7 @@ import java.util.List;
 import javax.sql.rowset.JdbcRowSet;
 
 import jdbc.classes.Comprador;
+import jdbc.classes.MyRowSetListener;
 import jdbc.conn.ConnectioFactory;
 
 public class CompradorDB {
@@ -120,6 +121,39 @@ public class CompradorDB {
 			ps.executeUpdate();
 
 			ConnectioFactory.fecharStatament(conn, ps);
+			System.out.println("Registro atualizado com sucesso!!!");
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+
+	}
+
+	public static void updateRowSet(Comprador comprador) {
+
+		if (comprador == null || comprador.getId() == null) {
+			System.out.println("Não foi possivel atualizar, dados nullos");
+			return; /* Volta para o metodo de inicialização e aborta a execução desse metodo */
+		}
+		 String sql = "SELECT * FROM `agencia`.`tb_comprador` WHERE  `id` = ?";
+
+		//String sql = "UPDATE `agencia`.`tb_comprador` SET `cpf` = ? , `nome` = ?  WHERE `id` = ?";
+		JdbcRowSet jdbc_conn = ConnectioFactory.getRowSetConnection();
+
+		try {
+
+			jdbc_conn.setCommand(sql); /* com jdbcRowSet é necessario efetuar uma consulta primeiro */
+			jdbc_conn.setInt(1, comprador.getId());
+			jdbc_conn.execute();
+			jdbc_conn.next();
+			jdbc_conn.updateString(3, comprador.getNome()); /* Segue a ordem dos campos das tabelas */
+			jdbc_conn.updateString(2, comprador.getCpf());
+			jdbc_conn.updateRow();
+			
+			ConnectioFactory.fecharConexaoJdbc(jdbc_conn);
+
 			System.out.println("Registro atualizado com sucesso!!!");
 
 		} catch (SQLException e) {
@@ -382,7 +416,10 @@ public class CompradorDB {
 		// String sql = "DELETE FROM `agencia`.`tb_comprador` WHERE id = '" +
 		// comprador.getId() + "'";
 		String sql = "SELECT * FROM tb_comprador WHERE nome like  ? ";
+		
 		JdbcRowSet jdbc_conn = ConnectioFactory.getRowSetConnection();
+		jdbc_conn.addRowSetListener(new MyRowSetListener());
+		
 		List<Comprador> compradorList = new ArrayList<>();
 
 		try {
@@ -393,10 +430,10 @@ public class CompradorDB {
 
 			while (jdbc_conn.next()) {
 
-				compradorList.add(new Comprador(jdbc_conn.getInt("id"), jdbc_conn.getString("nome"), jdbc_conn.getString("cpf")));
-				
-			}
+				compradorList.add(
+						new Comprador(jdbc_conn.getInt("id"), jdbc_conn.getString("nome"), jdbc_conn.getString("cpf")));
 
+			}
 			ConnectioFactory.fecharConexaoJdbc(jdbc_conn);
 			return compradorList;
 
